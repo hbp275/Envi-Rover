@@ -3,7 +3,7 @@
 **EnviRover** is a LoRa-based environmental monitoring rover that can be remotely controlled using either a Serial Monitor or a Joystick module. It collects real-time temperature and humidity data using a DHT11 sensor and sends it wirelessly back to the controller.
 
 ## Code Structure
-- `/serial_monitor_controller ` : Code for controlling the rover via Serial Monitor Serial Monitor Controller 
+- `/serial_monitor_controller ` : Code for controlling the rover via Serial Monitor
 - `/joystick_controller` : Code for controlling the rover using Joystick Module
 - `/receiver_rover` : Code for rover-side motor control and sensor data transmission
 
