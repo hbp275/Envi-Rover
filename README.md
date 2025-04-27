@@ -8,7 +8,7 @@
 - `/receiver_rover` : Code for rover-side motor control and sensor data transmission
 
 ## How It Works
-- The transmitter Arduino sends movement commands (`w`, `a`, `s`, `d`, `o`) to the rover over LoRa.
+- The transmitter Arduino sends movement commands (`w`, `a`, `s`, `d`) to the rover over LoRa.
 - Pressing `o` (or pressing the joystick button) requests temperature and humidity data.
 - The rover receives the commands, drives the motors accordingly, and sends back sensor readings when requested.
 - If no sensor data is received within 5 seconds, the transmitter triggers a timeout to prevent blocking.
