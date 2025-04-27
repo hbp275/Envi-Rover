@@ -1,31 +1,60 @@
-# EnviRover
+🚀 EnviRover is a rover system controlled remotely over LoRa communication. It can move in all four directions and return environmental data (temperature and humidity) upon request.
 
-**EnviRover** is a LoRa-based environmental monitoring rover that can be remotely controlled. It collects real-time data like temperature, humidity, and distance from obstacles and sends it wirelessly to the controller through the LoRa.
+Features
+📡 LoRa-Based Wireless Communication (433 MHz)
 
-## Features
-- Remote servo control
-- LoRa-based long-range communication
-- Sensor data reporting (DHT11 + Ultrasonic)
-- Two-way communication between controller and rover (Half Duplex)
+🎮 Two Control Modes: Serial Monitor or Joystick
 
-## Hardware Used
-- Arduino UNO (x2)
-- LoRa Modules (x2)
-- DHT11 Sensor
-- HC-SR04 Ultrasonic Sensor
-- DC Motor (Weels)
-- Servo Motor
-- Open Board, Breadboards, jumper wires, etc.
+🌡️ Environmental Monitoring: Temperature and Humidity readings using DHT11 sensor
 
-## Code Structure
-- `/transmitter_controller`: Code for controller (transmitter)
-- `/receiver_rover`: Code for rover (receiver + sensors)
+⏳ Timeout Handling: Waits for sensor data for 5 seconds to avoid blocking
 
-## How It Works
-- The controller sends servo directions via LoRa based on the keywords (W,A,S,D) position.
-- When the user presses `m` in the Serial Monitor, the rover responds with sensor data.
-- The rover reads temperature, humidity, and obstacle distance, and sends the data back via LoRa.
+🛠️ Motor Driver Integration: Smooth motor control using PWM signals
 
-## Author
-Harish A Electronics & Communication Engineering, 6th Sem
+Hardware Components
+Arduino Uno (x2)
 
+LoRa SX1278 modules (x2)
+
+Motor Driver (L298N / similar)
+
+DHT11 Temperature and Humidity Sensor
+
+4 DC Motors + Chassis
+
+Joystick Module (x1) (optional for joystick control)
+
+Jumper wires, Battery, etc.
+
+Software Overview
+1. Transmitter Arduino (Controller)
+Option 1: Serial Monitor Controller
+
+Control rover by typing commands (w, a, s, d, o) in Serial Monitor.
+
+Useful for debugging or testing.
+
+Option 2: Joystick Controller
+
+Move joystick to send movement commands.
+
+Press joystick button to request sensor data.
+
+Offers more intuitive, real-time control.
+
+2. Receiver Arduino (Rover)
+Receives movement commands over LoRa.
+
+Controls motors accordingly.
+
+Sends sensor data back when requested.
+
+Command Set
+
+Command	Action
+w	Move Forward
+s	Move Backward
+a	Turn Left
+d	Turn Right
+x	Stop
+o	Request Sensor Data
